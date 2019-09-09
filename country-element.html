@@ -1,0 +1,69 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="nav-element.html">
+<link rel="import" href="content-element.html">
+
+<dom-module id="country-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 300px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(21, 146, 204);
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      .content {
+        margin-left: 300px;
+        padding: 0px 10px;
+      }
+
+      nav-element:hover {
+        color: rgb(102, 101, 101);
+      }
+
+      nav-element {
+        margin-left: 20px;
+      }
+    </style>
+    <!-- <h2>Hello [[prop1]]!</h2> -->
+    <div class="sidenav">
+      <nav-element></nav-element>
+    </div>
+    <div class="content">
+      <content-element></content-element>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `country-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class CountryElement extends Polymer.Element {
+      static get is() { return 'country-element'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'country-element'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(CountryElement.is, CountryElement);
+  </script>
+</dom-module>
