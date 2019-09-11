@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
 
-<dom-module id="nav-element">
+<dom-module id="header-component">
     <template>
         <style>
             :host {
@@ -39,15 +39,15 @@
     </template>
     <script>
         /**
-         * `nav-element`
+         * `header-component`
          * 
          *
          * @customElement
          * @polymer
          * @demo demo/index.html
          */
-        class NavElement extends Polymer.Element {
-            static get is() { return 'nav-element' }
+        class HeaderComponent extends Polymer.Element {
+            static get is() { return 'header-component' }
             static get properties() {
                 return {
                     countries: {
@@ -68,6 +68,6 @@
             }
         }
 
-        window.customElements.define(NavElement.is, NavElement)
+        window.customElements.define(HeaderComponent.is, HeaderComponent)
     </script>
 </dom-module>

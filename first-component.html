@@ -1,0 +1,38 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="content-element.html">
+
+<dom-module id="first-component">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <p>[[countryObject.countryTitle]]</p>
+
+    </template>
+    <script>
+        /**
+         * `first-component`
+         * 
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class FirstComponent extends Polymer.Element {
+            static get is() { return 'first-component' }
+            static get properties() {
+                return {
+                }
+            }
+
+            showCountrySelected(e) {
+                this.set("country", e.model.item)
+            }
+        }
+
+        window.customElements.define(FirstComponent.is, FirstComponent)
+    </script>
+</dom-module>

@@ -26,21 +26,18 @@
         padding: 0px 10px;
       }
 
-      nav-element:hover {
-        color: rgb(102, 101, 101);
-      }
-
       nav-element {
         margin-left: 20px;
       }
     </style>
-    <!-- <h2>Hello [[prop1]]!</h2> -->
     <div class="sidenav">
-      <nav-element></nav-element>
+      <nav-element country='{{country}}'></nav-element>
     </div>
-    <div class="content">
-      <content-element></content-element>
-    </div>
+    <template is="dom-if" if='[[isSelected]]'>
+      <div class="content">
+        <content-element country='{{country}}' country-object='{{countryObject}}'></content-element>
+      </div>
+    </template>
   </template>
 
   <script>
@@ -53,17 +50,67 @@
      * @demo demo/index.html
      */
     class CountryElement extends Polymer.Element {
-      static get is() { return 'country-element'; }
+      static get is() { return 'country-element' }
       static get properties() {
         return {
-          prop1: {
+          country: {
             type: String,
-            value: 'country-element'
+            observer: '_countrySelected',
+            notify: true
+          },
+          countryObject: {
+            type: Object,
+            value: () => {
+              return {}
+            },
+            notify: true
+          },
+          isSelected: {
+            type: Boolean,
+            value: false
           }
-        };
+        }
       }
+      _countrySelected(newValue, oldValue) {
+        console.log(newValue)
+        switch (newValue) {
+          case 'Mexico':
+            this.isSelected = false
+            this.countryObject.borderColor = '#F14429'
+            this.countryObject.backgroundColor = '#77B472'
+            this.countryObject.name = newValue
+            this.countryObject.countryTitle = 'Estados Unidos Mexicanos'
+            this.countryObject.countryFlag = 'http://www.amigosmap.org.mx/wp-content/uploads/2015/02/bandera_M%C3%A9xico10.jpg'
+            this.isSelected = true
+            break;
+          case 'France':
+            this.isSelected = false
+            this.countryObject.borderColor = '#F14429'
+            this.countryObject.backgroundColor = '#77B472'
+            this.countryObject.name = newValue
+            this.countryObject.countryTitle = 'Estados Unidos Mexicanos'
+            this.countryObject.countryFlag = 'http://www.amigosmap.org.mx/wp-content/uploads/2015/02/bandera_M%C3%A9xico10.jp'
+            this.isSelected = true
+            break;
+          case 'United Kingdom':
+            this.countryObject.borderColor = '#F14429'
+            this.countryObject.backgroundColor = '#77B472'
+            this.countryObject.name = newValue
+            this.countryObject.countryTitle = 'Estados Unidos Mexicanos'
+            this.countryObject.countryFlag = 'http://www.amigosmap.org.mx/wp-content/uploads/2015/02/bandera_M%C3%A9xico10.jpg'
+            break;
+          case 'Brazil':
+            this.countryObject.borderColor = '#F14429'
+            this.countryObject.backgroundColor = '#77B472'
+            this.countryObject.name = newValue
+            this.countryObject.countryTitle = 'Estados Unidos Mexicanos'
+            this.countryObject.countryFlag = 'http://www.amigosmap.org.mx/wp-content/uploads/2015/02/bandera_M%C3%A9xico10.jpg'
+            break;
+        }
+      }
+
     }
 
-    window.customElements.define(CountryElement.is, CountryElement);
+    window.customElements.define(CountryElement.is, CountryElement)
   </script>
 </dom-module>

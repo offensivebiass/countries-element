@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="country-element.html">
 
 <dom-module id="content-element">
     <template>
@@ -6,8 +7,25 @@
             :host {
                 display: block;
             }
+
+            .card {
+                border-style: solid;
+                border-color: #F14429;
+            }
+
+            img {
+                height: 200px;
+                width: 200px;
+            }
         </style>
-        <a on-click="_clicked">Hello [[prop1]]!</a>
+        <p>[[country]]</p>
+        <img src="[[countryObject.countryFlag]]">
+        <p>[[countryObject.countryFlag]]</p>
+        <div class="card">
+            <first-component country="{{countryObject}}"></first-component>
+            <!-- <second-component country="[[country]]"></second-component>
+            <third-component country="[[country]]"></third-component> -->
+        </div>
     </template>
 
     <script>
@@ -20,17 +38,28 @@
          * @demo demo/index.html
          */
         class ContentElement extends Polymer.Element {
-            static get is() { return 'content-element'; }
+            static get is() { return 'content-element' }
             static get properties() {
                 return {
-                    prop1: {
+                    country: {
                         type: String,
-                        value: 'content-element'
+                        notify: true
+                    },
+                    countryObject: {
+                        type: Object,
+                        value: () => {
+                            return {}
+                        },
+                        notify: true
                     }
-                };
+                }
+            }
+            connectedCallback(){
+                super.connectedCallback()
+                console.log(this.countryObject.countryFlag)
             }
         }
 
-        window.customElements.define(ContentElement.is, ContentElement);
+        window.customElements.define(ContentElement.is, ContentElement)
     </script>
 </dom-module>

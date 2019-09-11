@@ -1,0 +1,128 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="data-base">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+    </template>
+
+    <script>
+        /**
+         * `data-base`
+         * 
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class DataBase extends Polymer.Element {
+            static get is() { return 'data-base' }
+            static get properties() {
+                return {
+                    countries: {
+                        type: Array,
+                        value: () => {
+                            return [
+                                {
+                                    borderColor: '#E7381D',
+                                    backgroundColor: 'wheat',
+                                    name: 'México',
+                                    countryTitle: 'Estados Unidos Mexicanos',
+                                    countryFlag: 'http://www.amigosmap.org.mx/wp-content/uploads/2015/02/bandera_M%C3%A9xico10.jpg',
+                                    alt: 'bandera de mexico',
+                                    leftMainDescription: 'es un país de América ubicado en la parte meridional de América del Norte con capital en la Ciudad de México. Políticamente es una república representativa, democrática, federal y laica, compuesta por 32 entidades federativas (31 estados y la capital federal).',
+                                    rightMainDescription: 'El territorio mexicano tiene una superficie de 1 964 375 km²,20​ por lo que es el decimotercer país más extenso del mundo y el tercero más grande de América Latina. Limita al norte con los Estados Unidos de América a lo largo de una frontera de 3 155 km, mientras que al sur tiene una frontera de 958 km con Guatemala y 276 km con Belice. Las costas del país limitan al oeste con el océano Pacífico y al este con el golfo de México y el mar Caribe, sumando 9 330 km, por lo que es el tercer país americano con mayor longitud de litoral.',
+                                    centralSquareImage: 'https://es.wikipedia.org/wiki/Paseo_de_la_Reforma#/media/Archivo:PaseoAngelBicylistsDF.jpg',
+                                    leftPresidentImage: 'https://lopezobrador.org.mx/wp-content/uploads/2019/08/1-08-2019-CONFERENCIA-DE-PRENSA-MATUTINA-FOTO-05.jpg',
+                                    altLeftPresident: 'Andres Manuel Lopez Obrador, actual presidente.',
+                                    presidentialDescription: 'Durante su carrera política, se ha desempeñado como presidente nacional del Partido de la Revolución Democrática (PRD) de 1996 a 1999, como jefe de Gobierno del Distrito Federal de 2000 a 2005, como candidato a la presidencia de México por la Coalición Por el Bien de Todos en las elecciones federales del 2006 y por la coalición Movimiento Progresista en las elecciones del 2012; así como presidente del partido Movimiento Regeneración Nacional (Morena) de 2015 a 2017.8​9​10​ Fue electo presidente de México en las elecciones federales de 2018, postulado por la coalición Juntos Haremos Historia, conformada por Morena, el Partido del Trabajo (PT) y el Partido Encuentro Social (PES).',
+                                    rightPresidentImage: 'https://pbs.twimg.com/profile_images/991180595710513152/V5O-Z320_400x400.jpg',
+                                    altRightPresident: 'Enrique Peña Nieto, anterior presidente de Mexico',
+                                    history: 'El territorio actual de México fue descubierto y habitado por grupos de cazadores y recolectores nómadas hace más de 30 000 años. Alrededor del año 9000 a. C. se desarrollaban los procesos que llevaron a la domesticación de plantas como la calabaza y el huaje50​ en regiones como el Valle de Tehuacán y la sierra de Tamaulipas. La domesticación del maíz ocurrió alrededor del quinto milenio antes de la era común y fue un hito que después condujo al establecimiento de aldeas sedentarias en Mesoamérica.',
+                                },
+                                {
+                                    borderColor: 'green',
+                                    backgroundColor: 'lightblue',
+                                    name: 'Canada',
+                                    countryTitle: 'welcome to Canada!',
+                                    countryFlag: 'http://www.sciencekids.co.nz/images/pictures/flags680/Canada.jpg',
+                                    alt: 'Canadian flag',
+                                    leftMainDescription: 'Description text for Canada!',
+                                    rightMainDescription: 'Right side description for Canada!',
+                                    centralSquareImage: 'https://img.pixers.pics/pho_wat(s3:700/FO/32/72/52/68/700_FO32725268_fed9d0ec2546657540e264cbca5e3fcb.jpg,700,465,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,415,jpg)/vinilos-estatua-en-la-plaza-central-ottawa-canada.jpg.jpg',
+                                    leftPresidentImage: 'https://upload.wikimedia.org/wikipedia/commons/7/71/John_A_Macdonald_%28ca._1875%29.jpg',
+                                    altLeftPresident: 'John_A_Macdonald_first_president_Canada',
+                                    presidentialDescription: 'PRESIDENTIAL DESCRIPTION CANADA',
+                                    rightPresidentImage: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Justin_Trudeau_in_Lima%2C_Peru_-_2018_%2841507133581%29_%28cropped%29.jpg',
+                                    altRightPresident: 'Current President of Canada Justin_Trudeau',
+                                    history: 'History of Canada...',
+                                    placesToVisit: [
+                                        {
+                                            place: 'Niagara Falls',
+                                            description: 'Visita Niagara Falls...',
+                                        },
+                                        {
+                                            place: 'Antiquè museúm',
+                                            description: 'Excursión en autobús con paradas libres',
+                                        },
+                                        {
+                                            place: 'Quebec',
+                                            description: 'Visita Quebec',
+                                        },
+                                    ]
+                                },
+                                {
+                                    borderColor: 'black',
+                                    backgroundColor: 'lightgreen',
+                                    name: 'MEXICO',
+                                    countryTitle: 'welcome to MExico!',
+                                    countryFlag: 'http://www.sciencekids.co.nz/images/pictures/flags680/Mexico.jpg',
+                                    alt: 'Mexicoan flag',
+                                    leftMainDescription: 'Description text for Mexico!',
+                                    rightMainDescription: 'Right side description for Mexico!',
+                                    centralSquareImage: 'https://cdni.rt.com/actualidad/public_images/2017.07/article/595e468608f3d990558b4567.jpg',
+                                    leftPresidentImage: 'https://media.gettyimages.com/photos/avery-brundage-international-olympic-committee-president-listens-as-picture-id515542362?s=2048x2048',
+                                    altLeftPresident: 'John_A_Macdonald_first_president_Mexico',
+                                    presidentialDescription: 'PRESIDENTIAL DESCRIPTION Mexico',
+                                    rightPresidentImage: 'https://media.gettyimages.com/photos/newly-elected-president-of-mexico-andres-manuel-lopez-obrador-speaks-picture-id992270860?s=2048x2048',
+                                    altRightPresident: 'Current President of Mexico Justin_Trudeau',
+                                    history: 'History of Mexico...',
+                                    placesToVisit: [
+                                        {
+                                            place: 'Niagara Falls',
+                                            description: 'Visita Niagara Falls...',
+                                        },
+                                        {
+                                            place: 'Antiquè museúm',
+                                            description: 'Excursión en autobús con paradas libres',
+                                        },
+                                        {
+                                            place: 'Quebec',
+                                            description: 'Visita Quebec',
+                                        },
+                                        {
+                                            place: 'qweqwe',
+                                            description: 'qweqwe',
+                                        },
+                                        {
+                                            place: 'qweqwe',
+                                            description: 'Visita Quebec',
+                                        },
+
+                                    ]
+                                }
+                            ]
+                        },
+                        notify: true
+                    }
+                }
+            }
+        }
+
+        window.customElements.define(DataBase.is, DataBase)
+    </script>
+</dom-module>
