@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="country-element.html">
+<link rel="import" href="first-component.html">
 
 <dom-module id="content-element">
     <template>
@@ -18,16 +19,14 @@
                 width: 200px;
             }
         </style>
-        <p>[[country]]</p>
-        <img src="[[countryObject.countryFlag]]">
-        <p>[[countryObject.countryFlag]]</p>
+        <p>{{data.name}}</p>
+        <img src="{{data.countryFlag}}">
         <div class="card">
-            <first-component country="{{countryObject}}"></first-component>
+            <first-component data="{{data}}"></first-component>
             <!-- <second-component country="[[country]]"></second-component>
             <third-component country="[[country]]"></third-component> -->
         </div>
     </template>
-
     <script>
         /**
          * `content-element`
@@ -41,22 +40,11 @@
             static get is() { return 'content-element' }
             static get properties() {
                 return {
-                    country: {
-                        type: String,
-                        notify: true
-                    },
-                    countryObject: {
+                    data: {
                         type: Object,
-                        value: () => {
-                            return {}
-                        },
-                        notify: true
+                        value: () => { },
                     }
                 }
-            }
-            connectedCallback(){
-                super.connectedCallback()
-                console.log(this.countryObject.countryFlag)
             }
         }
 

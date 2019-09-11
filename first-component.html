@@ -7,10 +7,24 @@
             :host {
                 display: block;
             }
+
+            div {
+                column-count: 3;
+            }
+
+            img {
+                width: 80%;
+            }
+
+            p {
+                text-align: justify;
+            }
         </style>
-
-        <p>[[countryObject.countryTitle]]</p>
-
+        <div>
+            <p>[[data.description1]]</p>
+            <img src="[[data.countryFlag]]">
+            <p>[[data.description2]]</p>
+        </div>
     </template>
     <script>
         /**
@@ -25,11 +39,17 @@
             static get is() { return 'first-component' }
             static get properties() {
                 return {
+                    data: {
+                        type: Object,
+                        value: () => {
+                            return {}
+                        }
+                    }
                 }
             }
-
-            showCountrySelected(e) {
-                this.set("country", e.model.item)
+            connectedCallback() {
+                super.connectedCallback()
+                console.log("prueba", this.data)
             }
         }
 
