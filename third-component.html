@@ -1,0 +1,52 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="content-element.html">
+
+<dom-module id="third-component">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+
+            img {
+                width: 80%;
+            }
+
+            p {
+                text-align: justify;
+            }
+        </style>
+        <div>
+            <p>[[data.description1]]</p>
+        </div>
+    </template>
+    <script>
+        /**
+         * `third-component`
+         * 
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class ThirdComponent extends Polymer.Element {
+            static get is() { return 'third-component' }
+            static get properties() {
+                return {
+                    data: {
+                        type: Object,
+                        value: () => {
+                            return {}
+                        }
+                    }
+                }
+            }
+            connectedCallback() {
+                super.connectedCallback()
+                console.log("prueba", this.data)
+            }
+        }
+
+        window.customElements.define(ThirdComponent.is, ThirdComponent)
+    </script>
+</dom-module>

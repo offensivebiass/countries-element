@@ -1,6 +1,8 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="country-element.html">
 <link rel="import" href="first-component.html">
+<link rel="import" href="second-component.html">
+<link rel="import" href="third-component.html">
 
 <dom-module id="content-element">
     <template>
@@ -23,8 +25,8 @@
         <img src="{{data.countryFlag}}">
         <div class="card">
             <first-component data="{{data}}"></first-component>
-            <!-- <second-component country="[[country]]"></second-component>
-            <third-component country="[[country]]"></third-component> -->
+            <second-component data="{{data}}"></second-component>
+            <third-component data="{{data}}"></third-component>
         </div>
     </template>
     <script>

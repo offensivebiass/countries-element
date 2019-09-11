@@ -1,0 +1,58 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="content-element.html">
+
+<dom-module id="second-component">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+
+            div {
+                column-count: 3;
+            }
+
+            img {
+                width: 80%;
+            }
+
+            p {
+                text-align: justify;
+            }
+        </style>
+        <div>
+            <img src="[[data.countryFlag]]">
+            <p>[[data.description1]]</p>
+            <img src="[[data.countryFlag]]">
+        </div>
+    </template>
+    <script>
+        /**
+         * `second-component`
+         * 
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class SecondComponent extends Polymer.Element {
+            static get is() { return 'second-component' }
+            static get properties() {
+                return {
+                    data: {
+                        type: Object,
+                        value: () => {
+                            return {}
+                        }
+                    }
+                }
+            }
+            connectedCallback() {
+                super.connectedCallback()
+                console.log("prueba", this.data)
+            }
+        }
+
+        window.customElements.define(SecondComponent.is, SecondComponent)
+    </script>
+</dom-module>
