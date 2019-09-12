@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="country-element.html">
+<link rel="import" href="header-component.html">
 <link rel="import" href="first-component.html">
 <link rel="import" href="second-component.html">
 <link rel="import" href="third-component.html">
@@ -9,20 +10,18 @@
         <style>
             :host {
                 display: block;
+                --color-border: gray;
+                --color-bg: white;
+                background: var(--color-bg);
             }
 
             .card {
                 border-style: solid;
-                border-color: #F14429;
-            }
-
-            img {
-                height: 200px;
-                width: 200px;
+                border-width: 2px;
+                border-color: var(--color-border);
             }
         </style>
-        <p>{{data.name}}</p>
-        <img src="{{data.countryFlag}}">
+        <header-component data="{{data}}"></header-component>
         <div class="card">
             <first-component data="{{data}}"></first-component>
             <second-component data="{{data}}"></second-component>
@@ -45,8 +44,16 @@
                     data: {
                         type: Object,
                         value: () => { },
+                        observer: "_setColors"
                     }
                 }
+            }
+
+            _setColors(newValue, oldValue) {
+                this.updateStyles({
+                '--color-border': newValue.borderColor,
+                '--color-bg': newValue.backgroundColor
+            })
             }
         }
 

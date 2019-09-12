@@ -7,17 +7,14 @@
             :host {
                 display: block;
             }
-
-            img {
-                width: 80%;
-            }
-
-            p {
-                text-align: justify;
-            }
         </style>
         <div>
-            <p>[[data.description1]]</p>
+            <p>Ciudades Principales</p>
+            <ul>
+                <template is="dom-repeat" items="[[data.principalCities]]">
+                    <li type="circle">[[item.place]]</li>
+                </template>
+            </ul>
         </div>
     </template>
     <script>

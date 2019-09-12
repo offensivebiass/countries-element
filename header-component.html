@@ -7,35 +7,13 @@
                 display: block;
             }
 
-            .list-country {
-                text-align: left;
-                color: white;
-                padding: 0;
-                border: none;
-                background: none;
-                display: block;
-                margin-left: 20px;
-                width: 200px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            .list-country:hover {
-                color: rgb(102, 101, 101);
-            }
-
-            h1 {
-                color: white;
-                margin-bottom: 20px
+            img {
+                height: 200px;
+                width: 300px;
             }
         </style>
-
-        <h1>Paises</h1>
-
-        <template is="dom-repeat" items="[[countries]]">
-            <button class="list-country" on-click="showCountrySelected">[[item]]</button>
-        </template>
-
+        <img src="{{data.countryFlag}}">
+        <p>{{data.countryTitle}}</p>
     </template>
     <script>
         /**
@@ -50,16 +28,6 @@
             static get is() { return 'header-component' }
             static get properties() {
                 return {
-                    countries: {
-                        type: Array,
-                        value() {
-                            return ['Mexico', 'France', 'United Kingdom', 'Brazil']
-                        }
-                    },
-                    country: {
-                        type: String,
-                        notify: true
-                    }
                 }
             }
 
